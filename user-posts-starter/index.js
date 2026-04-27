@@ -7,7 +7,7 @@ async function main() {
   const userData = await users.json();
   console.log(userData);
   const userList = document.querySelector(".user-list");
-  userData
+  const userHTML = userData
     .map(
       (user) => `<div class="user-card">
      <div class="user-card__container">
@@ -16,10 +16,12 @@ async function main() {
       <p><b>Phone:</b> ${user.phone}</p>
      <p><b>Website:</b> <a href="${user.website}" target="_blank">
      ${user.website}
+     </a>
     </div>
   </div>`,
     )
     .join("");
+  userList.innerHTML = userHTML;
 }
 
 main();
